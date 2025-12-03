@@ -1,5 +1,7 @@
 //This Program Does 2 by 2 Matrix Multiplication
 
+//C[i][j]=k=0∑n−1​A[i][k]∗B[k][j]
+
 import java.util.Scanner;
 class MatMul {
 	
@@ -11,39 +13,71 @@ class MatMul {
 		
 		}
 	
+	private double[][] getMatrixFromUser(Scanner input){
+		
+		System.out.println("How Many Rows does this Matrix Have?: ");
+		int r = input.nextInt();
+		
+		System.out.println("How Many Columns does this Matrix Have?: ");
+		int c = input.nextInt();
+		
+		System.out.printf("Creating Matrix Whose shape is %d by %d%n",r,c);
+		
+		double[][] A = new double[r][c];
+		
+		for(int i = 0; i < r; i++){
+			
+			for(int j = 0; j < c; j++){
+				
+				System.out.printf("%nEnter Value of A%d%d: ",i,j);
+				A[i][j] = input.nextDouble();
+				
+				}
+			}
+		
+		return A;
+		}	
+	
 	public double[][] multiplyMatrix(double[][] A, double[][] B){
 		
-		return new double[A.length][B[0].length];
+		double[][] C = new double[A.length][B[0].length];
+		
+		for(int i = 0; i< A.length; i++){
+			for(int j=0;j<B[0].length; j++){
+				C[i][j]=0;
+				for(int k=0; k<B.length;k++){
+					C[i][j] += A[i][k] * B[k][j];
+					}
+				}
+			}
+		
+		return C;
 		
 		}
 	
+	private displayMatrix(double[][] M){
+		
+		for(int i = 0; i < M.length; i++){			
+			for(int j = 0; j < M[0].length; j++){				
+				System.out.printf("%d ",A[i][j]);
+				}
+				System.out.println();
+			}		
+		}
+	
 	public static void main(String[] args){
+		
 		MatMul mm = new MatMul();
 		
-		Scanner input = new Scanner(System.in);
-		
-		System.out.println("How Many Rows does First Matrix Have?: ");
-		int r1 = input.nextInt();
-		
-		System.out.println("How Many Columns does First Matrix Have?: ");
-		int c1 = input.nextInt();
-		
-		System.out.printf("Creating first Matrix Whose shape is %d by %d%n",r1,c1);
-		
-		double[][] A = new double[r1][c1];
-		
-		System.out.println("How Many Rows does Second Matrix Have?: ");
-		int r2 = input.nextInt();
-		
-		System.out.println("How Many Columns does Second Matrix Have?: ");
-		int c2 = input.nextInt();
-		
-		System.out.printf("Creating Second Matrix Whose shape is %d by %d%n",r2,c2);
-		
-		double[][] B = new double[r2][c2];
+		Scanner input = new Scanner(System.in);	
+
 		
 		if(mm.areMatricesMultiplicable(A,B)){
+			
+			double[][] A = mm.getMatrixFromUser(input);		
+			double[][] B = mm.getMatrixFromUser(input);
 			mm.areMatricesMultiplicable(A,B);
+			
 			}	
 		else{
 			System.out.printf("AB is IMPossible");
