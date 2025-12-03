@@ -3,9 +3,18 @@
 import java.util.Scanner;
 class MatMul {
 	
+	private boolean areMatricesMultiplicable(double[][] A, double[][] B){
+		
+		System.out.println(A[0].length);
+		System.out.println(B.length);
+		return A[0].length == B.length ? true:false;
+		
+		}
+	
 	public double[][] multiplyMatrix(double[][] A, double[][] B){
 		
 		return new double[A.length][B[0].length];
+		
 		}
 	
 	public static void main(String[] args){
@@ -23,8 +32,6 @@ class MatMul {
 		
 		double[][] A = new double[r1][c1];
 		
-		System.out.println(A);
-
 		System.out.println("How Many Rows does Second Matrix Have?: ");
 		int r2 = input.nextInt();
 		
@@ -35,9 +42,12 @@ class MatMul {
 		
 		double[][] B = new double[r2][c2];
 		
-		System.out.println(B);
-		
-		
+		if(mm.areMatricesMultiplicable(A,B)){
+			mm.areMatricesMultiplicable(A,B);
+			}	
+		else{
+			System.out.printf("AB is IMPossible");
+			}
 		}
 	
 	}
