@@ -55,11 +55,11 @@ class MatMul {
 		
 		}
 	
-	private displayMatrix(double[][] M){
+	private void displayMatrix(double[][] M){
 		
 		for(int i = 0; i < M.length; i++){			
 			for(int j = 0; j < M[0].length; j++){				
-				System.out.printf("%d ",A[i][j]);
+				System.out.printf("%.2f ",M[i][j]);
 				}
 				System.out.println();
 			}		
@@ -69,14 +69,17 @@ class MatMul {
 		
 		MatMul mm = new MatMul();
 		
-		Scanner input = new Scanner(System.in);	
-
+		Scanner input = new Scanner(System.in);
+		
+		double[][] A = mm.getMatrixFromUser(input);		
+		double[][] B = mm.getMatrixFromUser(input);
+		
+		input.close();
 		
 		if(mm.areMatricesMultiplicable(A,B)){
 			
-			double[][] A = mm.getMatrixFromUser(input);		
-			double[][] B = mm.getMatrixFromUser(input);
-			mm.areMatricesMultiplicable(A,B);
+
+			mm.displayMatrix(mm.multiplyMatrix(A,B));
 			
 			}	
 		else{
