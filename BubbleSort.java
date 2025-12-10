@@ -1,3 +1,19 @@
+/* public void bubbleSort() {
+    // Assuming names is a String[] and nItems is the number of elements
+    for (int i = nItems - 1; i > 0; i--) {          // Outer loop backward from end to start
+        for (int j = 0; j < i; j++) {               // Inner loop forward from start to i-1
+            if (names[j].compareTo(names[j + 1]) > 0) {  // If names[j] > names[j+1]
+                // Swap names[j] and names[j+1]
+                String temp = names[j];
+                names[j] = names[j + 1];
+                names[j + 1] = temp;
+            }
+        }
+    }
+} */
+
+
+
 public class Sort{
 	
 	private static double[] bubbleSort(double[] data){
@@ -22,9 +38,29 @@ public class Sort{
 		return data;
 	}
 
-	private static double[] selectionSort(double[] data){
+	private static String[] selectionSort(String[] data){
 		
-		return new double[]{};
+		int dataLength = data.length;
+		
+		for(int i = 0; i < dataLength -1; i++){
+			
+			int minIndex = i;
+			
+			for(int j = i + 1; j < dataLength; j++){
+				
+				if(data[j].compareTo(data[minIndex]) < 0){
+					
+					minIndex = j;
+					
+				}
+			}
+			
+			String temp = data[minIndex];
+			data[minIndex] = data[i];
+			data[i] = temp;
+		}
+		
+		return data;
 	}
 	
 	public static double[] sort(String algorithm, double[] data) throws Exception {
@@ -45,13 +81,14 @@ public class Sort{
 	public static void main(String[] args){
 		
 		double[] numbers = {5.2, 3.1, 4.7, 2.9, 1.0};
+		String[] names = {"Zara", "Alice", "John", "Mike", "Bob"};
 		
 		try{
-			sort("bubbe sort", numbers);
+			sort("selection sort", names);
 		
 			System.out.println();
 			
-			for (double num : numbers) {
+			for (double num : names) {
 				System.out.print(num + " ");
 			}
 			
