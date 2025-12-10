@@ -2,15 +2,15 @@ public class Sort{
 	
 	private static double[] bubbleSort(double[] data){
 		
-		return new double[];
+		return new double[]{};
 	}
 
 	private static double[] selectionSort(double[] data){
 		
-		return new double[];
+		return new double[]{};
 	}
 	
-	public static double[] sort(String algorithm, double[] data){
+	public static double[] sort(String algorithm, double[] data) throws Exception {
 		
 		if(algorithm.toLowerCase() == "bubble sort")
 			
@@ -23,7 +23,7 @@ public class Sort{
 		else
 			throw new Exception("unsupported Sorting Algorithm");		
 
-	
+	}
 	
 	public static void main(String[] args){
 		
