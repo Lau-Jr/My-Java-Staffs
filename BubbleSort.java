@@ -16,7 +16,7 @@
 
 public class Sort{
 	
-	private static double[] bubbleSort(double[] data){
+	private static <T extends Comparable<T>> T[] bubbleSort(T[] data){
 		
 		int dataLength = data.length;
 		
@@ -24,9 +24,9 @@ public class Sort{
 			
 			for(int j = i; j < dataLength - 1 - i; j++ ){
 				
-				if (data[j] < data[j+1]){
+				if (data[j].compareTo(data[j + 1]) > 0){
 					
-					double temp = data[j];
+					T temp = data[j];
 					data[j] = data[j+1];
 					data[j+1] = temp;
 					
@@ -38,7 +38,7 @@ public class Sort{
 		return data;
 	}
 
-	private static String[] selectionSort(String[] data){
+	private static <T extends Comparable<T>> T[] selectionSort(T[] data){
 		
 		int dataLength = data.length;
 		
@@ -55,7 +55,7 @@ public class Sort{
 				}
 			}
 			
-			String temp = data[minIndex];
+			T temp = data[minIndex];
 			data[minIndex] = data[i];
 			data[i] = temp;
 		}
@@ -80,7 +80,7 @@ public class Sort{
 	
 	public static void main(String[] args){
 		
-		double[] numbers = {5.2, 3.1, 4.7, 2.9, 1.0};
+		Double[] numbers = {5.2, 3.1, 4.7, 2.9, 1.0};
 		String[] names = {"Zara", "Alice", "John", "Mike", "Bob"};
 		
 		try{
@@ -88,7 +88,7 @@ public class Sort{
 		
 			System.out.println();
 			
-			for (double num : names) {
+			for (String num : names) {
 				System.out.print(num + " ");
 			}
 			
