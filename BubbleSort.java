@@ -63,7 +63,7 @@ public class Sort{
 		return data;
 	}
 	
-	public static double[] sort(String algorithm, double[] data) throws Exception {
+	public static <T extends Comparable<T>> T[] sort(String algorithm, T[] data) throws Exception {
 		
 		if(algorithm.toLowerCase() == "bubble sort")
 			
