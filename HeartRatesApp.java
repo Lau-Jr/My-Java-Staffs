@@ -5,8 +5,8 @@ public class HeartRatesApp {
 		
         Scanner input = new Scanner(System.in);
 		
-		HeartRates person = new HeartRates("Alice", "Johnson", 15, 5, 1995);
-		
+		HeartRates person = new HeartRates("Laurent", "Wambura", 02, 07, 1997);
+		System.out.println();
 		System.out.println("Name: " + person.getFirstName() + " " + person.getLastName()); 
 		System.out.println("Date of Birth: " + person.getDOB().getMonth() + "/" + person.getDOB().getDay() + "/" + person.getDOB().getYear()); 
 		System.out.println("Age: " + person.getAge() + " years"); 
