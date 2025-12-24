@@ -12,6 +12,7 @@
     }
 } */
 
+//Generics Works with Wrappers not PrimitiveTypes
 
 
 public class Sort{
