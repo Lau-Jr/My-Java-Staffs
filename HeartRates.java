@@ -1,5 +1,7 @@
 import classesAndObjectsIntro.Date;// I can Use maven to handle this dependency
 import java.time.LocalDate;
+import java.util.Map;
+import java.util.HashMap;
 
 public class HeartRates {
 	
@@ -41,6 +43,19 @@ public class HeartRates {
 	
 	public int getMaxHeartrate(){
 		return MAX_HEART_RATE_REF - getAge(); 
+	}
+	
+	public Map<String, Float> getTartgetRate(){
+		Map<String, Float> targetRate = new HashMap<>();
+		
+		float minTarget = 0.5f *getMaxHeartrate();
+		float maxTarget = 0.85f *getMaxHeartrate();
+		
+		targetRate.put("min",minTarget);//boxing
+		targetRate.put("max",maxTarget);//boxing
+		
+		return targetRate;
+		
 	}
 	
 }
